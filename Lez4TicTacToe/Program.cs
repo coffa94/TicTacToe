@@ -12,6 +12,7 @@ namespace Lez4TicTacToe {
             string player;
             int rows, coloumns, freeCells, rowSelected, coloumnSelected, countMoves;
             bool playerWin;
+            //Ciao Davide
 
             //initializing rows and coloumns of our game scheme
             rows = 3;
