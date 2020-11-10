@@ -170,6 +170,7 @@ namespace Lez4TicTacToe {
                     Console.WriteLine("Cells free: " + freeCells);
                 }
                 Console.WriteLine("");
+                Console.WriteLine("--------------------------------------------");
 
             }
 
