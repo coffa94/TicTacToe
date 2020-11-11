@@ -46,7 +46,7 @@ namespace Lez4TicTacToe {
             playerWin = false;
 
             //for cycle until there will be no more cells free or a player win, counting the number of moves in the game
-            for (countMoves = 0; freeCells > 0 && playerWin==false; countMoves++) {
+            for (countMoves = 1; freeCells > 0 && playerWin==false; countMoves++) {
                 Console.WriteLine("Player " + player);
 
                 //player input row with checking if it is a number
@@ -85,62 +85,33 @@ namespace Lez4TicTacToe {
                                     gameScheme[rowSelected, coloumnSelected] = player;
                                     freeCells--;
 
-                                    //check a winning condition in the scheme
-                                    if (player == "X") {
+                                    //check a winning condition in the scheme for player X or player O
                                         for (int j = 0; j < coloumns && playerWin == false; j++) {
                                             int i = 0;
-                                            if (gameScheme[i, j] == "X" && gameScheme[i + 1, j] == "X" && gameScheme[i + 2, j] == "X") {
+                                            if (gameScheme[i, j] == player && gameScheme[i + 1, j] == player && gameScheme[i + 2, j] == player) {
                                                 playerWin = true;
                                                 Console.WriteLine("");
-                                                Console.WriteLine("Player X WIN in " + countMoves + " moves");
+                                                Console.WriteLine("Player " + player +  " WIN in " + countMoves + " moves");
                                             }
                                         }
                                         for (int i = 0; i < rows && playerWin == false; i++) {
                                             int j = 0;
-                                            if (gameScheme[i, j] == "X" && gameScheme[i, j + 1] == "X" && gameScheme[i, j + 2] == "X") {
+                                            if (gameScheme[i, j] == player && gameScheme[i, j + 1] == player && gameScheme[i, j + 2] == player) {
                                                 playerWin = true;
                                                 Console.WriteLine("");
-                                                Console.WriteLine("Player X WIN in " + countMoves + " moves");
+                                                Console.WriteLine("Player " + player + " WIN in " + countMoves + " moves");
                                             }
                                         }
-                                        if (playerWin == false && gameScheme[0, 0] == "X" && gameScheme[1, 1] == "X" && gameScheme[2, 2] == "X") {
+                                        if (playerWin == false && gameScheme[0, 0] == player && gameScheme[1, 1] == player && gameScheme[2, 2] == player) {
                                             playerWin = true;
                                             Console.WriteLine("");
-                                            Console.WriteLine("Player X WIN in " + countMoves + " moves");
+                                            Console.WriteLine("Player " + player + " WIN in " + countMoves + " moves");
                                         }
-                                        if (playerWin == false && gameScheme[0, 2] == "X" && gameScheme[1, 1] == "X" && gameScheme[2, 0] == "X") {
+                                        if (playerWin == false && gameScheme[0, 2] == player && gameScheme[1, 1] == player && gameScheme[2, 0] == player) {
                                             playerWin = true;
                                             Console.WriteLine("");
-                                            Console.WriteLine("Player X WIN in " + countMoves + " moves");
+                                            Console.WriteLine("Player " + player + " WIN in " + countMoves + " moves");
                                         }
-                                    } else {
-                                        for (int j = 0; j < coloumns && playerWin == false; j++) {
-                                            int i = 0;
-                                            if (gameScheme[i, j] == "O" && gameScheme[i + 1, j] == "O" && gameScheme[i + 2, j] == "O") {
-                                                playerWin = true;
-                                                Console.WriteLine("");
-                                                Console.WriteLine("Player O WIN in " + countMoves + " moves");
-                                            }
-                                        }
-                                        for (int i = 0; i < rows && playerWin == false; i++) {
-                                            int j = 0;
-                                            if (gameScheme[i, j] == "O" && gameScheme[i, j + 1] == "O" && gameScheme[i, j + 2] == "O") {
-                                                playerWin = true;
-                                                Console.WriteLine("");
-                                                Console.WriteLine("Player O WIN in " + countMoves + " moves");
-                                            }
-                                        }
-                                        if (playerWin == false && gameScheme[0, 0] == "O" && gameScheme[1, 1] == "O" && gameScheme[2, 2] == "O") {
-                                            playerWin = true;
-                                            Console.WriteLine("");
-                                            Console.WriteLine("Player O WIN in " + countMoves + " moves");
-                                        }
-                                        if (playerWin == false && gameScheme[0, 2] == "O" && gameScheme[1, 1] == "O" && gameScheme[2, 0] == "O") {
-                                            playerWin = true;
-                                            Console.WriteLine("");
-                                            Console.WriteLine("Player O WIN in " + countMoves + " moves");
-                                        }
-                                    }
 
                                     //change player's turn
                                     if (player == "X") {
@@ -154,8 +125,6 @@ namespace Lez4TicTacToe {
                         }
                     }
                 }
-
-
 
                 //printing new game scheme with free cells
                 Console.WriteLine("");
