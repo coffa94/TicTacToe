@@ -12,7 +12,6 @@ namespace Lez4TicTacToe {
             string player;
             int rows, coloumns, freeCells, rowSelected, coloumnSelected, countMoves;
             bool playerWin;
-            //Ciao Davide
 
             //initializing rows and coloumns of our game scheme
             rows = 3;
@@ -31,14 +30,16 @@ namespace Lez4TicTacToe {
 
             //printing game scheme
             for (int i = 0; i < rows; i++) {
+                Console.WriteLine("-------------");
                 for (int j = 0; j < coloumns; j++) {
                     if (j < coloumns - 1) {
-                        Console.Write(gameScheme[i, j] + " ");
+                        Console.Write("| " + gameScheme[i, j] + " ");
                     } else {
-                        Console.WriteLine(gameScheme[i, j]);
+                        Console.WriteLine("| " + gameScheme[i, j] + " |");
                     }
                 }
             }
+            Console.WriteLine("-------------");
             Console.WriteLine("");
 
             freeCells = rows * coloumns;
@@ -58,7 +59,7 @@ namespace Lez4TicTacToe {
                     //check if player's input is a correct number of row
                     if (rowSelected<=0 || rowSelected > rows) {
                         Console.WriteLine("");
-                        Console.WriteLine("The row inserted wrong");
+                        Console.WriteLine("The row inserted is wrong");
                     } else {
                         //player input coloumn with checking if it is a number
                         Console.WriteLine("Insert the coloumn number");
@@ -159,14 +160,16 @@ namespace Lez4TicTacToe {
                 //printing new game scheme with free cells
                 Console.WriteLine("");
                 for (int i = 0; i < rows; i++) {
+                    Console.WriteLine("-------------");
                     for (int j = 0; j < coloumns; j++) {
                         if (j < coloumns - 1) {
-                            Console.Write(gameScheme[i, j] + " ");
+                            Console.Write("| " + gameScheme[i, j] + " ");
                         } else {
-                            Console.WriteLine(gameScheme[i, j]);
+                            Console.WriteLine("| " + gameScheme[i, j] + " |");
                         }
                     }
                 }
+                Console.WriteLine("-------------");
                 if (playerWin == false) {
                     Console.WriteLine("Cells free: " + freeCells);
                 }
