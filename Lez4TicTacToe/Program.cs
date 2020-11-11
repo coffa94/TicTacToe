@@ -9,10 +9,10 @@ namespace Lez4TicTacToe {
     class Program {
 
         static void initializeGameScheme(string[,] gameScheme, int rows, int coloumns) {
-            //initializing multidimensional array with character "_" inside it
+            //initializing multidimensional array with character " " inside it
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < coloumns; j++) {
-                    gameScheme[i, j] = "_";
+                    gameScheme[i, j] = " ";
                 }
             }
         }
@@ -22,17 +22,19 @@ namespace Lez4TicTacToe {
 
         Console.WriteLine("");
             for (int i = 0; i < rows; i++) {
-                Console.WriteLine("-------------");
                 for (int j = 0; j < coloumns; j++) {
                     if (j < coloumns - 1) {
-                        Console.Write("| " + gameScheme[i, j] + " ");
+                        Console.Write(" " + gameScheme[i, j] + " |");
                     } else {
-                        Console.WriteLine("| " + gameScheme[i, j] + " |");
+                        Console.WriteLine(" " + gameScheme[i, j]);
                     }
                 }
+                if (i < rows - 1) {
+                    Console.WriteLine("-----------");
+                }
             }
-            Console.WriteLine("-------------");
             if (playerWin == false) {
+                Console.WriteLine();
                 Console.WriteLine("Cells free: " + freeCells);
             }
             Console.WriteLine("");
@@ -78,7 +80,7 @@ namespace Lez4TicTacToe {
                             rowSelected--;
                             coloumnSelected--;
 
-                            if (gameScheme[rowSelected, coloumnSelected] != "_") {
+                            if (gameScheme[rowSelected, coloumnSelected] != " ") {
                                 Console.Clear();
                                 Console.WriteLine("Position of the scheme occupied");
                                 result = false;
